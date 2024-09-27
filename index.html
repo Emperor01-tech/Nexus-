@@ -28,7 +28,37 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", function() {
+    // Array of paragraphs to dynamically add to the page
+    const paragraphs = [
+        "Education is the key to unlocking countless opportunities in life. It shapes one's future by providing the knowledge and skills needed for success.",
+        "Through formal education, individuals acquire not only academic knowledge but also critical thinking skills, creativity, and the ability to solve real-world problems.",
+        "Examinations like NECO, WAEC, and JAMB serve as critical milestones in every student's academic journey, evaluating their preparedness for further education or professional endeavors.",
+        "Continuous learning through exams and certifications prepares students to contribute to society meaningfully and improves their chances of achieving personal and professional goals."
+    ];
+
+    const paragraphContainer = document.getElementById("dynamic-paragraphs");
+
+    // Dynamically create and append paragraphs
+    paragraphs.forEach(text => {
+        const paragraphElement = document.createElement("p");
+        paragraphElement.textContent = text;
+        paragraphContainer.appendChild(paragraphElement);
+    });
+
+    // Dynamic welcome message based on time of day
+    const welcomeMessage = document.getElementById("welcome-message");
+    const currentHour = new Date().getHours();
+
+    if (currentHour < 12) {
+        welcomeMessage.textContent = "Good Morning! Welcome to the Educational Hub";
+    } else if (currentHour < 18) {
+        welcomeMessage.textContent = "Good Afternoon! Welcome to the Educational Hub";
+    } else {
+        welcomeMessage.textContent = "Good Evening! Welcome to the Educational Hub";
+    }
+});
+    </script>
 </body>
 </html>
 
